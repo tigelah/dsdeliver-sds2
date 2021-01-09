@@ -1,5 +1,7 @@
 package br.com.rodrigo.dsdeliver.entities;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -14,7 +16,9 @@ public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Identificador único do Pedido", required = true)
     private Long id;
+    @ApiModelProperty(notes = "Identificador do endereço ao qual o Pedido se refere", required = true)
     private String address;
     private Double latitude;
     private Double longitude;
@@ -25,6 +29,7 @@ public class Order implements Serializable {
     @JoinTable(name = "tb_order_product",
     joinColumns = @JoinColumn(name = "order_id"),
     inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @ApiModelProperty(notes = "Identificador do produto ao qual o pedido se refere", required = true)
     private Set<Product> products = new HashSet<>();
 
     public Order() {

@@ -1,5 +1,7 @@
 package br.com.rodrigo.dsdeliver.entities;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,10 +13,15 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Identificador único do Produto", required = true)
     private Long id;
+    @ApiModelProperty(notes = "Identificador do nome ao qual o Produto se refere", required = true)
     private String name;
+    @ApiModelProperty(notes = "Identificador de preço ao qual o Produto se refere", required = true)
     private Double price;
+    @ApiModelProperty(notes = "Identificador do descrição ao qual o Produto se refere", required = true)
     private String description;
+    @ApiModelProperty(notes = "Identificador do imagem ao qual o Produto se refere", required = true)
     private String imageUri;
 
     public Product() {

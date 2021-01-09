@@ -13,7 +13,7 @@ function ProductsCard({ product, onSelectProduct, isSelected }: Props) {
       className={`order-card-container ${isSelected ? "selected" : ""}`}
       onClick={() => onSelectProduct(product)}
     >
-      <h3 className="orders-card-title">{product.name}</h3>
+      <h3 className="order-card-title">{product.name}</h3>
       <img
         className="order-card-image"
         src={product.imageUri}
